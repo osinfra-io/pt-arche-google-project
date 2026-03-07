@@ -15,7 +15,7 @@ permissions:
 jobs:
   tests:
     name: Tests
-    uses: osinfra-io/github-opentofu-gcp-called-workflows/.github/workflows/test.yml@e3c59e43f2458550c7f13b6369fb6978b6f42c6e # v0.2.9
+    uses: osinfra-io/pt-techne-opentofu-workflows/.github/workflows/test.yml@b250b03d5f6bd13afc5df9bd76b1729e465b7730 # v0.3.0
     if: github.actor != 'dependabot[bot]'
     with:
       opentofu_version: ${{ vars.OPENTOFU_VERSION }}

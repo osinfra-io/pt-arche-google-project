@@ -12,7 +12,7 @@ These repositories are reusable OpenTofu child modules consumed by platform team
 
 ## Coding Standards
 
-- Always run pre-commit validation after changing OpenTofu files: `pre-commit run -a`.
+- Always run pre-commit validation after making any changes: `pre-commit run -a`.
 - Document complex logic with comments.
 
 ### Automated Pre-Commit Execution
@@ -43,7 +43,7 @@ This ensures:
 
 ## GitHub Actions
 
-- Tests are run via `test.yml` on pull requests using the `osinfra-io/github-opentofu-gcp-called-workflows` reusable called workflow.
+- Tests are run via `test.yml` on pull requests using the `osinfra-io/pt-techne-opentofu-workflows` reusable called workflow.
 - Releases are published via `release.yml` when a version tag (`v*.*.*`) is pushed.
 - All GitHub Actions must use commit hashes instead of version tags for security and reproducibility.
 
@@ -117,4 +117,4 @@ The `.github/copilot-instructions.md` file **MUST be identical across all child 
 
 ## References
 
-- [Repository instructions documentation](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
+- [Repository instructions documentation](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions)
