@@ -12,7 +12,7 @@ Specialized guidance for OpenTofu (Terraform) infrastructure-as-code workflows.
 - `variables.tofu` - Input variables with validation
 - `outputs.tofu` - Output values
 - `providers.tofu` - Provider configurations
-- `helpers.tofu` - Present in any module directory that consumes `opentofu-core-helpers`; provides environment detection, labels, team data, and project naming — check here before hardcoding any of those values
+- `helpers.tofu` - Present in any module directory that consumes `pt-arche-core-helpers`; provides environment detection, labels, team data, and project naming — check here before hardcoding any of those values
 
 ### File Headers
 
@@ -164,17 +164,17 @@ resource "example" "conditional" {
 
 ## Helpers Module
 
-Some child modules consume `opentofu-core-helpers` via `helpers.tofu` in each module directory that needs it. This provides environment detection, labels, team data, and project naming — check here before hardcoding any of those values.
+Some child modules consume `pt-arche-core-helpers` via `helpers.tofu` in each module directory that needs it. This provides environment detection, labels, team data, and project naming — check here before hardcoding any of those values.
 
 - Always pin `source` to a commit SHA — never use a branch or semver tag
 - The SHA must be followed by a version comment on the same line: `?ref=<sha>  # v1.2.3`
 
 ```hcl
 # Core Child Module Helpers (osinfra.io)
-# https://github.com/osinfra-io/opentofu-core-helpers
+# https://github.com/osinfra-io/pt-arche-core-helpers
 
 module "helpers" {
-  source = "github.com/osinfra-io/opentofu-core-helpers//child?ref=<commit_sha>"  # v1.2.3
+  source = "github.com/osinfra-io/pt-arche-core-helpers//child?ref=<commit_sha>"  # v1.2.3
 }
 ```
 

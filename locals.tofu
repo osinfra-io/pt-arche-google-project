@@ -78,13 +78,13 @@ locals {
 
   monitoring_notification_channels = {
     "budget" = {
-      description   = "Budget notification channel created by the opentofu-google-project child module"
+      description   = "Budget notification channel created by the pt-arche-google-project child module"
       display_name  = "Budget"
       email_address = var.budget_notification_email
     }
 
     "security" = {
-      description   = "Security notification channel created by the opentofu-google-project child module"
+      description   = "Security notification channel created by the pt-arche-google-project child module"
       display_name  = "Security"
       email_address = var.security_notification_email
     }
