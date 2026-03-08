@@ -7,6 +7,6 @@ the community, but it does come with some risks.
 ## Reporting a Vulnerability
 
 Privately discuss, fix, and publish information about security vulnerabilities in this repository by drafting a new
-[security advisory](https://github.com/osinfra-io/opentofu-google-project/security/advisories/new).
+[security advisory](https://github.com/osinfra-io/pt-arche-google-project/security/advisories/new).
 
 <!-- This file is managed by the osinfra-io/github-organization-management repository and should not be edited directly. -->
