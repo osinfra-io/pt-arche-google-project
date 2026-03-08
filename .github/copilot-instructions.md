@@ -8,7 +8,7 @@ These repositories are reusable OpenTofu child modules consumed by platform team
 
 - **Root module** - Core module at the repository root (`main.tofu`, `variables.tofu`, `outputs.tofu`, `locals.tofu`)
 - **Sub-modules** - Regional or functional sub-modules in subdirectories (e.g., `regional/`, `dns/`)
-- **`shared/helpers.tofu`** - Invokes `opentofu-core-helpers` when present; provides environment detection, labels, and project naming
+- **`shared/helpers.tofu`** - Invokes `pt-arche-core-helpers` when present; provides environment detection, labels, and project naming
 
 ## Coding Standards
 
