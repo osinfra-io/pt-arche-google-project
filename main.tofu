@@ -1,6 +1,3 @@
-# Resources
-# https://opentofu.org/docs/language/resources
-
 # IAM Audit Config Resource
 # https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_audit_config
 
