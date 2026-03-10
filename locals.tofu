@@ -2,7 +2,9 @@
 # https://opentofu.org/docs/language/values/locals
 
 locals {
-  base_project_id = "${var.prefix}-${var.description}-${module.helpers.env}"
+  audit_log_config_types      = toset(["ADMIN_READ", "DATA_READ", "DATA_WRITE"])
+  base_project_id             = "${var.prefix}-${var.description}-${module.helpers.env}"
+  billing_budget_display_name = "Monthly: ${google_project.this.project_id}"
 
   # Conditional Expressions
   # https://opentofu.org/docs/language/expressions/conditionals
@@ -75,6 +77,11 @@ locals {
       status        = "low"
     }
   }
+
+  cis_logging_metrics_alert_policies = [for k, v in local.cis_logging_metrics : { key = k, value = google_monitoring_alert_policy.cis_logging_metrics[k].name }]
+  logging_service_identity_count     = var.cis_2_2_logging_sink_project_id == "" ? 1 : 0
+  logging_service_identity_email     = length(google_project_service_identity.logging) > 0 ? google_project_service_identity.logging[0].email : null
+  logging_service_identity_member    = try("serviceAccount:${google_project_service_identity.logging[0].email}", "serviceAccount:pending@pending.iam.gserviceaccount.com")
 
   monitoring_notification_channels = {
     "budget" = {
