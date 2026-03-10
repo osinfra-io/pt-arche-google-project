@@ -8,18 +8,12 @@ output "cis_2_2_logging_sink_project_id" {
 
 output "cis_2_2_logging_sink_service_account" {
   description = "The CIS 2.2 logging sink benchmark service account"
-  value       = length(google_project_service_identity.logging) > 0 ? google_project_service_identity.logging[0].email : null
+  value = local.logging_service_identity_email
 }
 
 output "cis_logging_metrics_alert_policy_names" {
   description = "The CIS logging metrics alert policy names, we need these to test the resources with inspec"
-  value = [
-    for k, v in local.cis_logging_metrics :
-    {
-      key   = k
-      value = google_monitoring_alert_policy.cis_logging_metrics[k].name
-    }
-  ]
+  value = local.cis_logging_metrics_alert_policies
 }
 
 output "id" {
