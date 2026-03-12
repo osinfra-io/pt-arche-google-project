@@ -10,3 +10,14 @@ updates:
     directory: /
     schedule:
       interval: daily
+
+  - package-ecosystem: opentofu
+    directories:
+      - "**/*"
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: daily
