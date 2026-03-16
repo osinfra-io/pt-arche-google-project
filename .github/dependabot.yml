@@ -10,14 +10,26 @@ updates:
     directory: /
     schedule:
       interval: daily
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
   - package-ecosystem: opentofu
     directories:
       - "**/*"
     schedule:
       interval: daily
+    groups:
+      opentofu:
+        patterns:
+          - "*"
 
   - package-ecosystem: pre-commit
     directory: /
     schedule:
       interval: daily
+    groups:
+      pre-commit:
+        patterns:
+          - "*"
