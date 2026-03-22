@@ -6,9 +6,6 @@
 
 OpenTofu **example** module that creates a GCP project with CIS GCP Benchmark compliance controls, including audit log configuration (CIS 2.1), a KMS-encrypted log sink bucket (CIS 2.2), default network deletion (CIS 3.1), and OS Login enforcement (CIS 4.4). It configures a billing budget with threshold alerts and provisions Cloud Monitoring notification channels and alert policies for security events. GCP API enablement and project-level IAM are managed alongside the project lifecycle.
 
-> [!NOTE]
-> We do not recommend consuming this module like you might a [public module](https://search.opentofu.org). It is a baseline, something you can fork, potentially maintain, and modify to fit your organization's needs. Using public modules vs. writing your own has various [drivers and trade-offs](https://docs.osinfra.io/fundamentals/architecture-decision-records/adr-0003) that your organization should evaluate.
-
 ## 🔩 Usage
 
 > [!TIP]
