@@ -34,6 +34,8 @@ Links to documentation and other resources required to develop and iterate in th
 
 - [apis](https://cloud.google.com/apis/docs/overview)
 - [audit logs](https://cloud.google.com/logging/docs/audit)
+- [billing budgets](https://cloud.google.com/billing/docs/how-to/budgets)
+- [kms](https://cloud.google.com/kms/docs)
 - [logging metrics](https://cloud.google.com/logging/docs/logs-based-metrics)
 - [logging routing](https://cloud.google.com/logging/docs/routing/overview)
 - [monitoring alerts](https://cloud.google.com/monitoring/alerts)
