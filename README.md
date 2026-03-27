@@ -23,22 +23,12 @@ team-example-tf2a-sb
 > [!NOTE]
 > The `tf2a` is a hex output from the random resource. We do not want to duplicate project IDs because project IDs are globally unique. Also, when you delete a project, it goes into a pending deletion state for 30 days, where you can't reuse the project ID. If you want to exclude this from your project name, you can use the variable: `random_project_id = false`
 
-## <img align="left" width="35" height="35" src="https://github.com/user-attachments/assets/eb98a3be-2ffe-4c05-91a4-072fe795a167"> Development
-
-Our focus is on the core fundamental practice of platform engineering, Infrastructure as Code.
-
->Open Source Infrastructure (as Code) is a development model for infrastructure that focuses on open collaboration and applying relative lessons learned from software development practices that organizations can use internally at scale. - [Open Source Infrastructure (as Code)](https://www.osinfra.io)
-
-To avoid slowing down stream-aligned teams, we want to open up the possibility for contributions. The Open Source Infrastructure (as Code) model allows team members external to the platform team to contribute with only a slight increase in cognitive load. This section is for developers who want to contribute to this repository, describing the tools used, the skills, and the knowledge required, along with OpenTofu documentation.
-
-See the [documentation](https://docs.osinfra.io/fundamentals/development-setup) for setting up a local development environment.
-
-### 🛠️ Tools
+## 🛠️ Tools
 
 - [osinfra-pre-commit-hooks](https://github.com/osinfra-io/pt-techne-pre-commit-hooks)
 - [pre-commit](https://github.com/pre-commit/pre-commit)
 
-### 📋 Skills and Knowledge
+## 📋 Skills and Knowledge
 
 Links to documentation and other resources required to develop and iterate in this repository successfully.
 
@@ -49,7 +39,7 @@ Links to documentation and other resources required to develop and iterate in th
 - [monitoring alerts](https://cloud.google.com/monitoring/alerts)
 - [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 
-### 🔍 Tests
+## 🔍 Tests
 
 All tests are [mocked](https://opentofu.org/docs/cli/commands/test/#the-mock_provider-blocks) allowing us to test the module without creating infrastructure or requiring credentials. The trade-offs are acceptable in favor of speed and simplicity. In an OpenTofu test, a mocked provider or resource will generate fake data for all computed attributes that would normally be provided by the underlying provider APIs.
 
@@ -61,7 +51,7 @@ tofu init
 tofu test
 ```
 
-### 📦 Release
+## 📦 Release
 
 To release a new version, simply push a new tag to the repository. The tag should be in the format `vX.Y.Z` where `X`, `Y`, and `Z` are integers.
 
