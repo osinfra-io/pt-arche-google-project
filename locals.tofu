@@ -3,7 +3,7 @@
 
 locals {
   audit_log_config_types      = toset(["ADMIN_READ", "DATA_READ", "DATA_WRITE"])
-  base_project_id             = "${var.prefix}-${var.description}-${module.helpers.env}"
+  base_project_id             = "${var.prefix}-${var.description}-${module.core_helpers.env}"
   billing_budget_display_name = "Monthly: ${google_project.this.project_id}"
 
   # Conditional Expressions
@@ -100,7 +100,7 @@ locals {
   # Format Function
   # https://opentofu.org/docs/language/functions/format
 
-  project_id = var.random_project_id ? format("%s-%s-%s-%s", var.prefix, var.description, random_id.this.hex, module.helpers.env) : local.base_project_id
+  project_id = var.random_project_id ? format("%s-%s-%s-%s", var.prefix, var.description, random_id.this.hex, module.core_helpers.env) : local.base_project_id
 
   # Concat Function
   # https://opentofu.org/docs/language/functions/concat
