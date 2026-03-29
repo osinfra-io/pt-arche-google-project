@@ -15,7 +15,7 @@ terraform {
 # Google Project
 # https://github.com/osinfra-io/pt-arche-google-project
 
-module "test" {
+module "google_project" {
   source = "../../../"
 
   billing_account                 = "000000-000000-000000"
