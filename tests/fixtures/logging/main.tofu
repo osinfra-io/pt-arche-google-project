@@ -20,7 +20,6 @@ module "google_project" {
 
   billing_account               = "000000-000000-000000"
   cis_2_2_logging_bucket_locked = false
-  description                   = "mock"
   folder_id                     = "0000000000000"
 
   labels = {
