@@ -30,11 +30,6 @@ variable "deletion_policy" {
   default     = "PREVENT"
 }
 
-variable "description" {
-  description = "A short description representing the system, or service you're building in the project for example: `tools` (for a tooling project), `logging` (for a logging project), `services` (for a services project)"
-  type        = string
-}
-
 variable "folder_id" {
   description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
