@@ -89,9 +89,9 @@ locals {
     for k, v in local.cis_logging_metrics : k => merge({ status = v.status }, var.labels)
   }
 
-  logging_service_identity_count  = var.cis_2_2_logging_sink_project_id == "" ? 1 : 0
-  logging_service_identity_email  = length(google_project_service_identity.logging) > 0 ? google_project_service_identity.logging[0].email : null
-  logging_service_identity_member = try("serviceAccount:${google_project_service_identity.logging[0].email}", "serviceAccount:pending@pending.iam.gserviceaccount.com")
+  logging_service_identity_email   = google_project_service_identity.logging != null ? google_project_service_identity.logging.email : null
+  logging_service_identity_enabled = var.cis_2_2_logging_sink_project_id == ""
+  logging_service_identity_member  = try("serviceAccount:${google_project_service_identity.logging.email}", "serviceAccount:pending@pending.iam.gserviceaccount.com")
 
   monitoring_notification_channels = {
     "budget" = {

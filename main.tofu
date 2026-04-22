@@ -283,11 +283,13 @@ resource "google_project_service" "this" {
 # https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/project_service_identity
 
 resource "google_project_service_identity" "logging" {
-  count = local.logging_service_identity_count
-
   depends_on = [
     google_project_service.this
   ]
+
+  lifecycle {
+    enabled = local.logging_service_identity_enabled
+  }
 
   provider = google-beta # Required for google_project_service_identity
 
