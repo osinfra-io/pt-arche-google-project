@@ -90,7 +90,7 @@ locals {
   }
 
   logging_service_identity_email   = google_project_service_identity.logging != null ? google_project_service_identity.logging.email : null
-  logging_service_identity_enabled = var.cis_2_2_logging_sink_project_id == ""
+  logging_service_identity_enabled = true
   logging_service_identity_member  = try("serviceAccount:${google_project_service_identity.logging.email}", "serviceAccount:pending@pending.iam.gserviceaccount.com")
 
   monitoring_notification_channels = {

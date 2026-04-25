@@ -263,6 +263,8 @@ resource "google_project_iam_member" "cis_2_2" {
     enabled = var.cis_2_2_logging_sink_project_id != ""
   }
 
+  depends_on = [google_project_service_identity.logging]
+
   member  = google_logging_project_sink.cis_2_2_logging_sink.writer_identity
   project = local.cis_2_2_logging_sink_project_id
   role    = "roles/logging.bucketWriter"
