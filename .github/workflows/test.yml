@@ -15,7 +15,7 @@ permissions:
 jobs:
   tests:
     name: Tests
-    uses: osinfra-io/pt-techne-opentofu-workflows/.github/workflows/test.yml@5f1739a6197fab1022f433ee526e7647ab4fae6d # v0.3.5
+    uses: osinfra-io/pt-techne-opentofu-workflows/.github/workflows/test.yml@d51fc205b914b7dde9cf54fab2d7e0059ddfa8c0 # v0.3.6
     if: github.actor != 'dependabot[bot]'
     with:
       opentofu_version: ${{ vars.OPENTOFU_VERSION }}
