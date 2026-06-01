@@ -11,7 +11,7 @@ repos:
       - id: check-symlinks
 
   - repo: https://github.com/osinfra-io/pt-techne-pre-commit-hooks
-    rev: 252311ab2f4f936637351f7ea5dd2f48d6fd15cf # frozen: v0.1.8
+    rev: 2a2848eecd2dca57b5257e22d1a43f1a79f6ad3d # frozen: v0.2.2
     hooks:
       - id: tofu-fmt
         verbose: true
