@@ -7,18 +7,11 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   release:
-    name: "Release"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ github.ref_name }}
-        run: |
-          gh release create "$TAG" \
-            --repo "${{ github.repository }}" \
-            --title "$TAG" \
-            --generate-notes
+    name: Release
+    uses: osinfra-io/pt-techne-misc-workflows/.github/workflows/release.yml@cd7f9e2c86fe5bbafd21b8f12cc0e6cbe504f0f7  # v0.2.8
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
