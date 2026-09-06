@@ -79,8 +79,6 @@ locals {
     }
   }
 
-  cis_logging_metrics_alert_policies = [for k, v in local.cis_logging_metrics : { key = k, value = google_monitoring_alert_policy.cis_logging_metrics[k].name }]
-
   cis_logging_metrics_filters = {
     for k, v in local.cis_logging_metrics : k => "metric.type=\"logging.googleapis.com/user/${k}\" AND resource.type=\"${v.resource_type}\""
   }
@@ -89,7 +87,6 @@ locals {
     for k, v in local.cis_logging_metrics : k => merge({ status = v.status }, var.labels)
   }
 
-  logging_service_identity_email   = google_project_service_identity.logging != null ? google_project_service_identity.logging.email : null
   logging_service_identity_enabled = true
   logging_service_identity_member  = try("serviceAccount:${google_project_service_identity.logging.email}", "serviceAccount:pending@pending.iam.gserviceaccount.com")
 
