@@ -27,10 +27,15 @@ run "default" {
 }
 
 run "logging" {
-  command = apply
+  command = plan
 
   module {
     source = "./tests/fixtures/logging"
+  }
+
+  assert {
+    condition     = output.cis_2_2_logging_bucket_locked
+    error_message = "The CIS 2.2 logging bucket must be locked by default"
   }
 }
 

@@ -18,9 +18,8 @@ terraform {
 module "google_project" {
   source = "../../../"
 
-  billing_account               = "000000-000000-000000"
-  cis_2_2_logging_bucket_locked = false
-  folder_id                     = "0000000000000"
+  billing_account = "000000-000000-000000"
+  folder_id       = "0000000000000"
 
   labels = {
     "mock-key" = "mock-value"
