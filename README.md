@@ -15,7 +15,7 @@ Consume the repository root with `source = "github.com/osinfra-io/pt-arche-googl
 The module creates the project without a default network, enables Cloud KMS and Logging plus requested services, configures full audit logging, a CMEK-protected 30-day log bucket and sink, CIS security metrics/alerts, OS Login, and a monthly billing budget. Project deletion defaults to `PREVENT`, log-bucket locking defaults to enabled, and randomized globally unique project IDs default to enabled. The default budget is only USD 5 and notification addresses default to osinfra.io aliases, so consumers outside that context must override them. Locked log buckets cannot be unlocked, API enablement can activate billable services, and KMS/log retention/monitoring generate ongoing costs.
 
 > [!TIP]
-> You can check the [tests/fixtures](tests/fixtures) directory for example configurations. These fixtures set up the system for testing by providing all the necessary initial code, thus creating good examples on which to base your configurations.
+> See [tests/fixtures](tests/fixtures) for example configurations.
 
 ### Project Names
 
@@ -36,8 +36,6 @@ team-example-tf2a-sb
 
 ## 📋 Skills and Knowledge
 
-Links to documentation and other resources required to develop and iterate in this repository successfully.
-
 - [apis](https://cloud.google.com/apis/docs/overview)
 - [audit logs](https://cloud.google.com/logging/docs/audit)
 - [billing budgets](https://cloud.google.com/billing/docs/how-to/budgets)
@@ -49,7 +47,7 @@ Links to documentation and other resources required to develop and iterate in th
 
 ## 🔍 Tests
 
-All tests are [mocked](https://opentofu.org/docs/cli/commands/test/#the-mock_provider-blocks) allowing us to test the module without creating infrastructure or requiring credentials. The trade-offs are acceptable in favor of speed and simplicity. In an OpenTofu test, a mocked provider or resource will generate fake data for all computed attributes that would normally be provided by the underlying provider APIs.
+Tests use [mocked providers](https://opentofu.org/docs/cli/commands/test/#the-mock_provider-blocks); no infrastructure or credentials are required.
 
 ```none
 tofu init
