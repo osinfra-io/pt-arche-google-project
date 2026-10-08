@@ -8,11 +8,7 @@ Reusable OpenTofu child module that creates a GCP project with CIS GCP Benchmark
 
 ## 🔩 Usage
 
-### Module interface
-
-Consume the repository root with `source = "github.com/osinfra-io/pt-arche-google-project?ref=<commit_sha>"`. See [`variables.tofu`](variables.tofu) and [`outputs.tofu`](outputs.tofu).
-
-The module creates the project without a default network, enables Cloud KMS and Logging plus requested services, configures full audit logging, a CMEK-protected 30-day log bucket and sink, CIS security metrics/alerts, OS Login, and a monthly billing budget. Project deletion defaults to `PREVENT`, log-bucket locking defaults to enabled, and randomized globally unique project IDs default to enabled. The default budget is only USD 5 and notification addresses default to osinfra.io aliases, so consumers outside that context must override them. Locked log buckets cannot be unlocked, API enablement can activate billable services, and KMS/log retention/monitoring generate ongoing costs.
+Log buckets are locked by default and cannot be unlocked. Project deletion defaults to `PREVENT`. Override the USD 5 budget and osinfra.io notification aliases when they do not fit your deployment.
 
 > [!TIP]
 > You can check the [tests/fixtures](tests/fixtures) directory for example configurations. These fixtures set up the system for testing by providing all the necessary initial code, thus creating good examples on which to base your configurations.
