@@ -60,9 +60,8 @@ resource "google_compute_project_metadata_item" "enable_oslogin" {
 
 resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
   lifecycle {
-    destroy         = false
-    enabled         = var.cis_2_2_logging_sink_project_id == ""
-    prevent_destroy = var.prevent_destroy
+    destroy = false
+    enabled = local.cis_2_2_logging_sink_local
   }
 
   key_ring        = google_kms_key_ring.this.id
@@ -76,7 +75,7 @@ resource "google_kms_crypto_key" "cis_2_2_logging_sink" {
 
 resource "google_kms_crypto_key_iam_member" "cis_2_2_logging_sink" {
   lifecycle {
-    enabled        = var.cis_2_2_logging_sink_project_id == ""
+    enabled        = local.cis_2_2_logging_sink_local
     ignore_changes = [member]
   }
 
@@ -115,7 +114,7 @@ resource "google_logging_metric" "cis_logging_metrics" {
 
 resource "google_logging_project_bucket_config" "cis_2_2_logging_sink" {
   lifecycle {
-    enabled = var.cis_2_2_logging_sink_project_id == ""
+    enabled = local.cis_2_2_logging_sink_local
   }
 
   bucket_id = "cis-2-2-logging-sink"
@@ -252,11 +251,11 @@ resource "google_project_iam_audit_config" "cis_2_1" {
 # We do not need to add the role to the project if the log bucket and sync are in the same project.
 
 resource "google_project_iam_member" "cis_2_2" {
-  lifecycle {
-    enabled = var.cis_2_2_logging_sink_project_id != ""
-  }
-
   depends_on = [google_project_service_identity.logging]
+
+  lifecycle {
+    enabled = local.cis_2_2_logging_sink_external
+  }
 
   member  = google_logging_project_sink.cis_2_2_logging_sink.writer_identity
   project = local.cis_2_2_logging_sink_project_id
