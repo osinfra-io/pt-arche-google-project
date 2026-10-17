@@ -59,12 +59,6 @@ variable "prefix" {
   default     = "test"
 }
 
-variable "prevent_destroy" {
-  description = "If true, prevents the KMS crypto key from being destroyed"
-  type        = bool
-  default     = false
-}
-
 variable "random_project_id" {
   description = "If true, a random hex value with a prefix of tf will be added to the `project_id`"
   type        = bool

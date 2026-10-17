@@ -3,7 +3,7 @@
 
 output "cis_2_2_logging_bucket_locked" {
   description = "Whether the local CIS 2.2 logging bucket is locked; null when using an external sink project"
-  value       = var.cis_2_2_logging_sink_project_id == "" ? google_logging_project_bucket_config.cis_2_2_logging_sink.locked : null
+  value       = local.cis_2_2_logging_bucket_locked
 }
 
 output "cis_2_2_logging_sink_project_id" {
